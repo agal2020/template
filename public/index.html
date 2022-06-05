@@ -1,37 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="../src/index.css">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <title>Music page</title>
+</head>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<body>
+  <!--ШАПКА САЙТА-->
+  <div class="head">
+    <div class="logo">
+      <svg class="logo_text">
+        <text x="50%" y="60%" text-anchor="middle">
+          TOP MUSIC
+        </text>
+      </svg>
+    </div>
+  </div>
+
+  <!--ОБЩАЯ ИНФОРМАЦИЯ-->
+  <div class="site_body">
+
+    <div class="grid-container">
+      <div class="post-1">
+        <div class="search_area">
+          <form class="input_form">
+            <input type="search" class="input_search">
+            <i class="fa fa-search"></i>
+          </form>
+        </div>
+        <div class="song_area">
+          <div class="song_name">
+            <h1 class="text_in_h1">Song name</h1>
+          </div>
+          <div class="artist_name">
+            <h1 class="text_in_h1">Artist name</h1>
+          </div>
+          <img src="resource/sobaka-muzyka-naushniki-podushka-telefon-radost.jpg" alt="album" class="album_pic">
+        </div>
+      </div>
+      <h1 class="track_list_h">Track list</h1>
+      <div class="post-2">
+        <ol class="rectangle">
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+          <li><a href="#" class="linq_a">Элемент списка</a></li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</body>
+
 </html>

@@ -1,0 +1,273 @@
+body {
+    margin-left: 5%;
+    padding: 10px;
+    width: 90%;
+    background-image: url(../public/resource/night-space-sky-stars-atmosphere-astronomy-constellation-star-screenshot-outer-space-astronomical-object-71717.jpg);
+}
+
+.head {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 150px;
+    position: relative;
+    padding: 10px;
+}
+
+
+.site_body {
+    margin: 0;
+    width: 100%;
+    min-height: 700px;
+    position: relative;
+    margin: 0;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+        'post-1 post-1 track_list_h track_list_h track_list_h'
+        'post-1 post-1 post-2 post-2 post-2';
+    width: 80%;
+    margin: auto;
+    overflow: auto;
+    height: 700px;
+    gap: 20px;
+}
+
+.post-1 {
+    grid-area: post-1;
+    padding: 30px;
+    overflow: hidden;
+}
+
+.post-2::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.post-2 {
+    grid-area: post-2;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    font-size: 30px;
+    display: inline-flex;
+    flex-direction: column;
+    overflow: scroll;
+    padding-top: 0;
+}
+
+/*ЗАГОЛОВОК*/
+
+.logo {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: relative;
+}
+
+
+.logo_text {
+    width: 100%;
+    height: 100%;
+    font-family: Lora, serif;
+    letter-spacing: 5px;
+    stroke: #FFADD3;
+    font-size: 150px;
+    font-weight: 700;
+    stroke-width: 3;
+    animation: textAnimate 5s infinite alternate;
+    position: absolute;
+    font-style: italic;
+}
+
+@keyframes textAnimate {
+    0% {
+        stroke-dasharray: 0 50%;
+        stroke-dashoffset: 20%;
+        fill: #B4E1F9;
+    }
+
+    100% {
+        stroke-dasharray: 50% 0;
+        stroke-dashoffstet: -20%;
+        fill: hsla(189, 68%, 75%, 0%)
+    }
+
+}
+
+/*СПИСОК*/
+
+.track_list_h {
+    grid-area: track_list_h;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 60px;
+    margin: 0;
+    padding-top: 0;
+}
+
+.rectangle {
+    counter-reset: li;
+    list-style: none;
+    font-size: 26px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    letter-spacing: 5px;
+    padding: 0;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+    margin: 0;
+}
+
+.linq_a {
+    margin: 10px;
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em .8em;
+    margin: .5em 0 .5em 2.5em;
+    background: rgba(255, 255, 255, 0.422);
+    color: rgb(33, 10, 47);
+    text-decoration: none;
+    transition: all .1s ease-out;
+    border-radius: 30px;
+}
+
+.linq_a:hover {
+    background: #dceff9;
+    border-color: #FFADD3;
+    border: 3px solid #FFADD3;
+    font-weight: 500;
+}
+
+.linq_a:before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    left: -2.5em;
+    top: 50%;
+    margin-top: -1em;
+    background: #dceff9;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.linq_a:after {
+    position: absolute;
+    content: "";
+    border: .8em solid transparent;
+    left: -10em;
+    top: 35%;
+    margin-top: -.5em;
+    transition: all .0s ease-out;
+}
+
+.linq_a:hover:after {
+    left: -.93em;
+    border-left-color: #dceff9;
+}
+
+/*АЛЬБОМ*/
+.song_area {
+    background-color: rgba(255, 255, 255, 0.779);
+    padding: 10px;
+    z-index: 2;
+    font-family: 'Nunito', sans-serif;
+}
+
+.album_pic {
+    margin: 0;
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+}
+
+.song_name {
+    margin: 0;
+    color: #1b0a1e;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.artist_name {
+    margin: 0;
+    color: #1b0a1e;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.text_in_h1 {
+    margin: 0;
+}
+
+/*ПОИСК*/
+
+.search_area {
+    margin-bottom: 10px;
+}
+
+.input_form {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s;
+    width: 100%;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+}
+
+.input_search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+
+.fa {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+.input_form:hover {
+    cursor: pointer;
+}
+
+.fa:hover {
+    background: #B4E1F9;
+    color: white;
+}
