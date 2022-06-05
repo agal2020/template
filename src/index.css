@@ -1,19 +1,11 @@
 body {
-    margin: 10px;
+    margin-left: 5%;
     padding: 10px;
+    width: 90%;
     background-image: url(../public/resource/night-space-sky-stars-atmosphere-astronomy-constellation-star-screenshot-outer-space-astronomical-object-71717.jpg);
 }
 
-p {
-    margin: 0;
-}
-
-h1 {
-    margin: 0;
-}
-
 .head {
-    display: -webkit-inline-flex;
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -35,12 +27,6 @@ h1 {
     margin: 0;
 }
 
-.footer {
-    margin: 0;
-    width: 100%;
-    height: 150px;
-    flex: 0 0 auto;
-}
 
 .grid-container {
     display: grid;
@@ -49,11 +35,10 @@ h1 {
     grid-template-areas:
         'post-1 post-1 track_list_h track_list_h track_list_h'
         'post-1 post-1 post-2 post-2 post-2';
-    height: 100%;
     width: 80%;
     margin: auto;
     overflow: auto;
-    height: 650px;
+    height: 700px;
     gap: 20px;
 }
 
@@ -72,13 +57,10 @@ h1 {
     grid-area: post-2;
     font-family: 'Nunito', sans-serif;
     color: white;
-    font-size: 30pt;
-    display: -webkit-inline-flex;
+    font-size: 30px;
     display: inline-flex;
     flex-direction: column;
     overflow: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     padding-top: 0;
 }
 
@@ -96,10 +78,10 @@ h1 {
 .logo_text {
     width: 100%;
     height: 100%;
-    font-family: Lora;
+    font-family: Lora, serif;
     letter-spacing: 5px;
     stroke: #FFADD3;
-    font-size: 130px;
+    font-size: 150px;
     font-weight: 700;
     stroke-width: 3;
     animation: textAnimate 5s infinite alternate;
@@ -128,7 +110,7 @@ h1 {
     grid-area: track_list_h;
     color: white;
     font-family: 'Nunito', sans-serif;
-    font-size: 45pt;
+    font-size: 60px;
     margin: 0;
     padding-top: 0;
 }
@@ -145,7 +127,7 @@ h1 {
     margin: 0;
 }
 
-.rectangle a {
+.linq_a {
     margin: 10px;
     position: relative;
     display: block;
@@ -158,14 +140,14 @@ h1 {
     border-radius: 30px;
 }
 
-.rectangle a:hover {
+.linq_a:hover {
     background: #dceff9;
     border-color: #FFADD3;
     border: 3px solid #FFADD3;
     font-weight: 500;
 }
 
-.rectangle a:before {
+.linq_a:before {
     content: counter(li);
     counter-increment: li;
     position: absolute;
@@ -181,7 +163,7 @@ h1 {
     border-radius: 50%;
 }
 
-.rectangle a:after {
+.linq_a:after {
     position: absolute;
     content: "";
     border: .8em solid transparent;
@@ -191,7 +173,7 @@ h1 {
     transition: all .0s ease-out;
 }
 
-.rectangle a:hover:after {
+.linq_a:hover:after {
     left: -.93em;
     border-left-color: #dceff9;
 }
@@ -214,15 +196,19 @@ h1 {
 .song_name {
     margin: 0;
     color: #1b0a1e;
-    font-size: 16pt;
+    font-size: 20px;
     font-weight: 900;
 }
 
 .artist_name {
     margin: 0;
     color: #1b0a1e;
-    font-size: 10pt;
+    font-size: 16px;
     font-weight: 300;
+}
+
+.text_in_h1 {
+    margin: 0;
 }
 
 /*ПОИСК*/
@@ -231,7 +217,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-form {
+.input_form {
     position: relative;
     top: 50%;
     left: 50%;
@@ -246,17 +232,15 @@ form {
     padding: 5px;
 }
 
-input {
+.input_search {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    ;
+    width: 90%;
     height: 42.5px;
     line-height: 30px;
     outline: 0;
     border: 0;
-    display: none;
     font-size: 1em;
     border-radius: 20px;
     padding: 0 20px;
@@ -279,15 +263,11 @@ input {
     transition: all 1s;
 }
 
-form:hover {
+.input_form:hover {
     cursor: pointer;
 }
 
-form:hover input {
-    display: block;
-}
-
-form:hover .fa {
+.fa:hover {
     background: #B4E1F9;
     color: white;
 }
