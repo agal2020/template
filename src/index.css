@@ -173,10 +173,6 @@ body {
     transition: all .0s ease-out;
 }
 
-.linq_a:hover:after {
-    left: -.93em;
-    border-left-color: #dceff9;
-}
 
 /*АЛЬБОМ*/
 .song_area {
