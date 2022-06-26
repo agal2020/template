@@ -12,16 +12,21 @@ export type Track = {
 };
 
 async function request(url: string) {
-    const response = await fetch(url);
-    return response.json();
+    try {
+        const response = await fetch(url);
+        return response.json();
+    } catch{
+        throw `Не удалось выполнить запрос к сайту last.fm`;
+    }
 }
 
 export function getTopTracks(limit: number): Promise<Track[]> {
     const url = `https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=${api_key}&format=json&limit=${limit}`
+    
     let json = request(url);
     return json.then(element => {
         return element.tracks.track;
-    });
+    }, error => {throw `Не удалось получить треки: ${error}`});
 }
 
 export function getSearchedTracks(songName: string, limit: number): Promise<Track[]> {
@@ -37,5 +42,6 @@ export function getSearchedTracks(songName: string, limit: number): Promise<Trac
                 }
             };
         });
-    });
+    },
+        error => { throw `Не удалось получить треки по запросу ${songName}: ${error}` });
 }

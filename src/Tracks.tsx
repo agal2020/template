@@ -2,7 +2,8 @@ import React from 'react';
 import { Track, getTopTracks, getSearchedTracks } from "../src/scripts";
 import { useSearchParams } from "react-router-dom";
 
-export function TracksPage() {
+
+export function TracksPage(props : {onError : Function, onTrackChange: Function}) {
     const [searchParams, setSearchParams] = useSearchParams();
 
     let q = searchParams.get("song_name");
@@ -13,7 +14,7 @@ export function TracksPage() {
             header.innerHTML = "Search: " + q;
         return (
             <>
-                <TracksList tracks={getSearchedTracks(q, 100)} />
+                <TracksList trackName={q} onError={props.onError} onTrackChange={props.onTrackChange} />
             </>
         );
     } else {
@@ -22,34 +23,48 @@ export function TracksPage() {
 
         return (
             <>
-                <TracksList tracks={getTopTracks(100)} />
+                <TracksList trackName={''} onError={props.onError} onTrackChange={props.onTrackChange} />
             </>);
     }
 }
 
-function TracksList({ ...props }: { tracks: Promise<Track[]> }) {
+function TracksList(props: { trackName: string, onError: Function, onTrackChange: Function }) {
     const [data, setData] = React.useState<Track[]>([]);
+    let [hasError, setHasError] = React.useState<boolean>(false);
 
     React.useEffect(() => {
-        props.tracks.then((e) => setData(e))
-            .catch((error) => console.log(error));
+        if (props.trackName != ''){
+            getSearchedTracks(props.trackName, 100).then(
+                e => {
+                    setData(e);
+                },
+                err => {
+                    props.onError(err);
+                    setHasError(true);
+                });
+        } else{
+            getTopTracks(100).then(
+                e => { 
+                    setData(e); 
+                },
+                err => {
+                    props.onError(err);
+                    console.log(err);
+                    setHasError(true);
+                });
+        }
     }, []);
 
-    return (
-        <>
-            <ol className="rectangle">{data.map((item) => {
-                return <li key={item.url}><a className='linq_a' href={item.url} onMouseOver={() => {
+    if(!hasError) {
+        return (
+            <>
+                <ol className="rectangle">{data.map((item) => {
+                    return <li key={item.url}><a className='linq_a' href={item.url} onMouseOver={() => { props.onTrackChange(item.name, item.artist.name); }
+                    }>{item.artist.name + ' - ' + item.name}</a></li>;
+                })}
+                </ol>
+            </>);
+    } 
 
-                    let song_name_tag = document.getElementsByClassName("song_name").item(0);
-                    if (song_name_tag)
-                        song_name_tag.innerHTML = `<h1>${item.name}</h1>`;
-
-                    let artist_name_tag = document.getElementsByClassName("artist_name").item(0);
-                    if (artist_name_tag)
-                        artist_name_tag.innerHTML = `<h1>${item.artist.name}</h1>`;
-                }
-                }>{item.artist.name + ' - ' + item.name}</a></li>;
-            })}
-            </ol>
-        </>);
+    return <></>;
 }
