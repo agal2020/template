@@ -9,6 +9,7 @@ export default function App() {
 	let [error, setError] = React.useState<string>("");
 	let [songName, setSongName] = React.useState<string>("Song Name");
 	let [artistName, setArtistName] = React.useState<string>("Artist Name");
+	let [header, setHeader] = React.useState<string>("TracksList");
 
 	let onError = (errorText: string) => {
 		setHasError(true);
@@ -57,11 +58,11 @@ export default function App() {
 							<img src="resource/sobaka-muzyka-naushniki-podushka-telefon-radost.jpg" alt="album" className="album_pic" />
 						</div>
 					</div>
-					<h1 className="track_list_h" id="song_list_name">Track list</h1>
+					<h1 className="track_list_h" id="song_list_name">{header}</h1>
 					<div className="post-2">
 						<div>
 							<Routes>
-								<Route path="/tracks" element={<TracksPage onError={onError} onTrackChange={onTrackChange} />} />
+								<Route path="/tracks" element={<TracksPage onError={onError} onTrackChange={onTrackChange} setHeader={setHeader} />} />
 								<Route path="*" element={<Navigate to="/tracks" />} />
 							</Routes>
 						</div>

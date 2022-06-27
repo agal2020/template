@@ -3,24 +3,22 @@ import { Track, getTopTracks, getSearchedTracks } from "../src/scripts";
 import { useSearchParams } from "react-router-dom";
 
 
-export function TracksPage(props : {onError : Function, onTrackChange: Function}) {
+export function TracksPage(props : {onError : Function, onTrackChange: Function, setHeader: Function}) {
     const [searchParams, setSearchParams] = useSearchParams();
 
     let q = searchParams.get("song_name");
-    let header = document.getElementsByClassName("track_list_h").item(0);
 
     if (q) {
-        if (header)
-            header.innerHTML = "Search: " + q;
+        props.setHeader("Search: " + q);
+
         return (
             <>
                 <TracksList trackName={q} onError={props.onError} onTrackChange={props.onTrackChange} />
             </>
         );
     } else {
-        if (header)
-            header.innerHTML = "Chart";
-
+        props.setHeader("Chart");
+        
         return (
             <>
                 <TracksList trackName={''} onError={props.onError} onTrackChange={props.onTrackChange} />
